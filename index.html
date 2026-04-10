@@ -1,113 +1,550 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Um Foca na Sexta</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Um Foca na Sexta</title>
+  <meta
+    name="description"
+    content="Um Foca na Sexta é um laboratório de reportagem voltado à formação de estudantes e jovens jornalistas, com mentoria editorial e foco no fazer jornalístico."
+  />
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=PT+Sans+Narrow:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: #695d46;
-    background: #f8f8f8;
-}
+  <style>
+    :root {
+      --color-text: #695d46;
+      --color-title: #008575;
+      --color-accent: #ff5e0e;
+      --color-bg: #fcfaf6;
+      --color-surface: #ffffff;
+      --color-border: rgba(105, 93, 70, 0.18);
+      --shadow-soft: 0 10px 30px rgba(105, 93, 70, 0.08);
+      --max-width: 1100px;
+      --radius: 18px;
+    }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-h1, h2 {
-    font-family: 'PT Sans Narrow', sans-serif;
-    color: #008575;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.highlight {
-    color: #ff5e0e;
-    font-weight: bold;
-}
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: "Open Sans", Arial, sans-serif;
+      line-height: 1.7;
+    }
 
-p {
-    line-height: 1.6;
-}
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
 
-.buttons {
-    margin-top: 30px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.button {
-    display: inline-block;
-    margin-right: 15px;
-    padding: 12px 20px;
-    background: #ff5e0e;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
 
-.footer {
-    margin-top: 60px;
-    font-size: 14px;
-    text-align: center;
-}
-</style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(252, 250, 246, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+    }
 
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-family: "PT Sans Narrow", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: 0.4px;
+      line-height: 1;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px;
+      font-family: "PT Sans Narrow", sans-serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      color: var(--color-title);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--color-title);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 18px;
+    }
+
+    .hero-text {
+      font-size: 1.05rem;
+      max-width: 60ch;
+    }
+
+    .highlight {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .hero-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card p {
+      margin: 0;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: var(--color-accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.96rem;
+      border: 2px solid var(--color-accent);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-accent);
+    }
+
+    .small-note {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .footer {
+      padding: 36px 0 56px;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-title {
+      font-family: "PT Sans Narrow", sans-serif;
+      font-size: 1.5rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .section-card,
+      .hero-card {
+        padding: 24px;
+      }
+
+      .brand {
+        font-size: 1.7rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">Um Foca na Sexta</a>
 
-<div class="container">
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#projeto">O projeto</a>
+        <a href="#funcionamento">Como funciona</a>
+        <a href="#eixo">Eixo do projeto</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#autor">Gabriel Toueg</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-<h1><span class="highlight">Um Foca na Sexta</span></h1>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Laboratório de reportagem</span>
+          <h1>Um Foca na Sexta</h1>
+          <p class="hero-subtitle">Laboratório de reportagem sobre o fazer jornalístico.</p>
+          <p class="hero-text">
+            Um espaço de formação e produção jornalística voltado a estudantes e recém-formados,
+            com mentoria editorial e foco em investigar o próprio jornalismo a partir da prática.
+          </p>
 
-<p>
-Um laboratório de formação jornalística voltado a estudantes interessados na prática do fazer jornalístico.
-</p>
+          <div class="button-row">
+            <a
+              class="btn"
+              href="https://umfocanasexta.wordpress.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver acervo original
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.facebook.com/umfocanasexta/?locale=pt_BR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver página no Facebook
+            </a>
+          </div>
+        </div>
 
-<p>
-O projeto articula produção, reflexão e acompanhamento editorial, criando um ambiente de experimentação e aprendizado contínuo.
-</p>
+        <aside class="hero-card" aria-label="Resumo do projeto">
+          <h3>Formação, prática e reflexão</h3>
+          <p>
+            O projeto articula experiência editorial, acompanhamento contínuo e reflexão crítica
+            sobre processos, rotinas, bastidores, dilemas e transformações do jornalismo.
+          </p>
+        </aside>
+      </div>
+    </section>
 
-<h2>Sobre o autor</h2>
+    <section id="projeto" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>O projeto</h2>
+          <p>
+            O <span class="highlight">Um Foca na Sexta</span> é um laboratório de formação e
+            produção jornalística voltado a estudantes e recém-formados.
+          </p>
+          <p>
+            O projeto parte de uma constatação simples: embora a formação acadêmica ofereça base
+            teórica e técnica, muitos estudantes concluem a graduação sem vivenciar de forma
+            estruturada o processo completo de produção de uma reportagem — da pauta à publicação,
+            sob orientação editorial contínua.
+          </p>
+          <p>
+            O laboratório se posiciona exatamente nesse ponto: como um espaço de prática orientada,
+            em que o jornalismo é aprendido e analisado simultaneamente.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<p>
-Gabriel Toueg é jornalista e mestre em Comunicação e Cultura, com mais de 20 anos de atuação profissional no Brasil e no exterior.
-</p>
+    <section id="funcionamento" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>Como funciona</h2>
+          <div class="two-col">
+            <div>
+              <p>
+                O projeto é organizado em ciclos de produção, nos quais os participantes
+                desenvolvem reportagens com acompanhamento editorial ao longo de todas as etapas.
+              </p>
+              <ul>
+                <li>definição e refinamento de pauta</li>
+                <li>planejamento de apuração</li>
+                <li>entrevistas e coleta de informações</li>
+                <li>organização do material</li>
+                <li>escrita, edição e reescrita</li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                O processo segue critérios profissionais e prazos reais.
+              </p>
+              <p>
+                A publicação dos textos depende da qualidade final do trabalho. Nem toda reportagem
+                desenvolvida no laboratório é necessariamente publicada — o foco está no processo
+                editorial e na formação do participante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-Ao longo da carreira, desenvolveu um trabalho contínuo de orientação de estudantes e jovens jornalistas, especialmente na transição entre formação acadêmica e prática profissional.
-</p>
+    <section id="eixo" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>Eixo do projeto</h2>
+          <p>
+            O diferencial do <span class="highlight">Um Foca na Sexta</span> está na natureza das pautas.
+          </p>
+          <p>As reportagens produzidas investigam o próprio jornalismo:</p>
+          <ul>
+            <li>bastidores de redações</li>
+            <li>processos editoriais</li>
+            <li>grandes coberturas</li>
+            <li>relações com fontes</li>
+            <li>dilemas éticos</li>
+            <li>condições de trabalho</li>
+            <li>transformações da profissão</li>
+          </ul>
+          <p style="margin-top:16px;">
+            Ao fazer isso, o projeto articula prática e reflexão crítica, permitindo que o estudante
+            aprenda não apenas a produzir reportagens, mas a compreender o campo em que atua.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<h2>Histórico do projeto</h2>
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>Formação e prática</h2>
+          <div class="two-col">
+            <div>
+              <p>O laboratório busca desenvolver:</p>
+              <ul>
+                <li>autonomia na construção de pautas</li>
+                <li>capacidade de apuração</li>
+                <li>rigor na escrita</li>
+                <li>compreensão do processo editorial</li>
+                <li>reflexão crítica sobre o jornalismo</li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                Mais do que produzir textos, o objetivo é formar jornalistas capazes de operar e
+                pensar o jornalismo contemporâneo.
+              </p>
+              <p>
+                Ao longo do tempo, o conjunto de reportagens tende a constituir também um arquivo
+                sobre o jornalismo brasileiro contemporâneo, útil para estudantes, pesquisadores e
+                debates sobre mídia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-O projeto foi inicialmente desenvolvido como blog e também teve presença em redes sociais.
-</p>
+    <section id="trajetoria" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>Trajetória do projeto</h2>
+          <p>
+            O <span class="highlight">Um Foca na Sexta</span> foi criado em 2013 como iniciativa
+            de mentoria editorial, reunindo estudantes interessados em desenvolver reportagens com
+            acompanhamento profissional.
+          </p>
+          <p>
+            Esta landing marca uma nova etapa do projeto, agora com proposta estruturada de
+            laboratório de formação e produção jornalística.
+          </p>
 
-<div class="buttons">
-<a class="button" href="https://umfocanasexta.wordpress.com/" target="_blank">Ver blog original</a>
-<a class="button" href="https://www.facebook.com/umfocanasexta/?locale=pt_BR" target="_blank">Ver página no Facebook</a>
-</div>
+          <div class="button-row">
+            <a
+              class="btn"
+              href="https://umfocanasexta.wordpress.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acessar blog original
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.facebook.com/umfocanasexta/?locale=pt_BR"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acessar página histórica no Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2>Contato</h2>
+    <section id="autor" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2><span class="highlight">Gabriel Toueg</span></h2>
+          <p>
+            Jornalista e mestre em Comunicação e Cultura, com mais de 20 anos de atuação
+            profissional em redações no Brasil e no exterior.
+          </p>
+          <p>
+            Ao longo da carreira, <span class="highlight">Gabriel Toueg</span> desenvolveu um
+            trabalho contínuo de orientação de estudantes e jovens jornalistas, especialmente na
+            transição entre formação acadêmica e prática profissional.
+          </p>
+          <p>
+            O projeto nasce dessa experiência, combinando prática, reflexão e formação em torno do
+            fazer jornalístico.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<p>
-Para informações, parcerias ou participação em futuras turmas:
-</p>
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2>Contato</h2>
+          <p>
+            Para informações, parcerias ou participação em futuras turmas:
+          </p>
+          <p class="small-note">
+            contato@umfocanasexta.com.br<br />
+            <span style="opacity: 0.8;">(ou provisoriamente seu e-mail atual, enquanto o domínio não é ativado)</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<p>
-contato@umfocanasexta.com.br
-</p>
-
-<div class="footer">
-© Gabriel Toueg 2013–2026
-</div>
-
-</div>
-
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-title">Um Foca na Sexta</div>
+      <div>Laboratório de reportagem sobre o fazer jornalístico.</div>
+      <div>© Gabriel Toueg 2013–2026</div>
+    </div>
+  </footer>
 </body>
 </html>
