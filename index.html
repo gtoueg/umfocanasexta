@@ -257,6 +257,27 @@
       font-weight: 700;
     }
 
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 6px;
+    }
+
+    .footer-social a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+    }
+
     @media (max-width: 900px) {
       .hero-grid,
       .two-col {
@@ -294,16 +315,21 @@
       .btn {
         width: 100%;
       }
+
+      .footer-social {
+        flex-direction: column;
+        gap: 8px;
+      }
     }
 
     .link-email {
-  color: #695d46;
-  text-decoration: underline;
-}
+      color: #695d46;
+      text-decoration: underline;
+    }
 
-.link-email:hover {
-  color: #ff5e0e;
-}
+    .link-email:hover {
+      color: #ff5e0e;
+    }
   </style>
 </head>
 <body>
@@ -487,7 +513,6 @@
           <p>
             Esta landing marca uma nova etapa do projeto, agora com proposta estruturada de
             laboratório de formação e produção jornalística. O projeto tinha presença digital com um blog e nas redes sociais, acompanhando a circulação de conteúdo da época.
-
           </p>
 
           <div class="button-row">
@@ -523,7 +548,7 @@
           <p>
             Ao longo da carreira, <span class="highlight">Gabriel Toueg</span> desenvolveu um
             trabalho contínuo de orientação de estudantes e jovens jornalistas, especialmente na
-            transição entre formação acadêmica e prática profissional. 
+            transição entre formação acadêmica e prática profissional.
           </p>
           <p>
             O projeto nasce dessa experiência, combinando prática, reflexão e formação em torno do
@@ -541,9 +566,9 @@
             Para informações, parcerias ou participação em futuras turmas:
           </p>
           <p class="small-note">
-  <a href="mailto:gtoueg.jor@gmail.com" class="link-email">
-    📩 gtoueg.jor@gmail.com
-  </a><br />
+            <a href="mailto:gtoueg.jor@gmail.com" class="link-email">
+              📩 gtoueg.jor@gmail.com
+            </a><br />
           </p>
         </div>
       </div>
@@ -554,6 +579,14 @@
     <div class="container footer-inner">
       <div class="footer-title">Um Foca na Sexta</div>
       <div>Laboratório de reportagem sobre o fazer jornalístico.</div>
+
+      <div class="footer-social" aria-label="Redes sociais do projeto">
+        <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+
       <div>© Gabriel Toueg 2013–2026</div>
     </div>
   </footer>
